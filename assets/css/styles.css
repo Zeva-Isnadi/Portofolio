@@ -34,6 +34,8 @@ body {
 /* Navbar */
 .navbar {
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    z-index: 1040;
 }
 
 .navbar.scrolled {
@@ -41,16 +43,25 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Theme Toggle Button */
 .theme-toggle {
     background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     right: 20px;
     top: 20px;
+    z-index: 1050; /* Pastikan tombol berada di atas elemen lain */
 }
+
+/* Pastikan tombol tidak menutupi menu di perangkat seluler */
+@media (max-width: 992px) {
+    .theme-toggle {
+        right: 10px; /* Sesuaikan jarak dari kanan untuk tampilan mobile */
+        top: 60px; /* Jarak dari atas sesuai dengan tinggi navbar pada tampilan mobile */
+    }
+}
+
 
 /* Skills Icons */
 .skill-card {
